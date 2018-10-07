@@ -6,30 +6,83 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Psychic</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/index.css">
+
+
+
+    <link rel="stylesheet" href="assets/css/reset.css">
+    
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    
+   
 </head>
 
 
 <body>
-    <h1>The Psychic Game</h1>
-    <h3>
-        <p id="letterOptions"> Guess what letter I'm thinking of...</p>
-    </h3> 
-    <h3>
-        <p id="wins">Wins:</p>
-    </h3>
-    <h3>
-        <p id="losses">Losses:</p>
-    </h3>
-    <h3>
-        <p id="guessesLeft">Number of guesses left:</p>
-    </h3>
-    <h3>
-        <p id="guessedLetters">Your guesses so far:</p>
-    </h3>
+    
+        <div audio autoplay> 
+                <source src="WhiteChristmas.mp3">
+              
+              </audio>
+</div>
+        <div class="jumbotron">
+        </div>
 
-    <script type="text/javascript">
 
+        <div class="container">
+                <div class="row justify-content-md-center">
+                  <div class="col col-lg-2">
+                    
+                  </div>
+                  <div class="col-md-auto">
+                        <h1>The Psychic Game</h1>
+                  </div>
+                  <div class="col col-lg-2">
+                    
+                  </div>
+                </div>
+                <br/><br/><br/>
+                <div class="row justify-content-md-center">
+                  <div class="col col-lg-2">
+                    
+                  </div>
+                  <div class="col-md-auto">
+                        <h3>
+                                <p id="letterOptions"> Guess what letter I'm thinking of...</p>
+                            </h3> 
+                  </div>
+                  <div class="col col-lg-2">
+                    
+                  </div>
+                </div>
+              </div>
+              <br/><br/><br/><br/>
+              <div class="row">
+                    <div class="col"><h3>
+                            <p id="wins">Number of guesses left:</p>
+                        </h3></div>
+                    <div class="col"><h3>
+                            <p id="guessesLeft">Wins:</p>
+                        </h3></div>
+                        
+                    <div class="w-100"></div>
+                    <br/><br/>
+                    <div class="col"><h3>
+                            <p id="losses">Your guesses so far:</p>
+                        </h3></div>
+                    <div class="col"> <h3>
+                            <p id="guessedLetters">Losses:</p>
+                        </h3></div>
+                  </div>
+    
+
+    
+   <script type="text/javascript">
 
 
         //Setting everything to zero.//
@@ -63,7 +116,10 @@
         };
 
 
-        computerChoice = prompt("Are you ready to start the game?");//computerChoice = prompt("What letter am I thinking of?");//new addition from HW3_try.html//
+        computerChoice = prompt("Are you ready to play the game? Type 'yes', then enter choose your letter.");//computerChoice = prompt("What letter am I thinking of?");//new addition from HW3_try.html//
+
+
+
 
         startGame();
 
@@ -72,7 +128,7 @@
 
         //Here we are grabbing the HTML element and setting it equal to the guessesLeft id (ie. guessesLeft will get displayed in HTML).//
         function updateGuessesLeft() {
-            document.getElementById("guessesLeft").innerHTML = "Number of guesses left:" + guessesLeft;
+            document.getElementById("guessesLeft").innerHTML = "Number of guesses left: " + guessesLeft;
         };
 
         /*function updateLettersToGuess() {
@@ -83,7 +139,7 @@
 
         //Here we take the guesses the user has tried, then displays it as letters separated by commas.//
         function updateGuessesSoFar() {
-            console.log(document.getElementById("guessedLetters").innerHTML = "Your guesses so far:" + guessedLetters);
+            console.log(document.getElementById("guessedLetters").innerHTML = "Your guesses so far: " + guessedLetters);
             console.log(guessedLetters);
         };
 
@@ -98,7 +154,7 @@
             var check = computerChoice.includes(userGuess);
             console.log(userGuess, check);
             if (check === false) {
-                alert("That was the incorrect letter.");
+                alert("That was the incorrect letter. Try again.");
                 guessesLeft--;
                 updateGuessesLeft();
                 guessedLetters.push(userGuess);
@@ -106,7 +162,7 @@
                 if (guessesLeft > 0) {
                     if (userGuess == lettersToGuess) {
                         wins++;
-                        document.getElementById("wins").innerHTML = "Wins:" + wins;
+                        document.getElementById("wins").innerHTML = "Wins: " + wins;
                         userGuess = userGuess.toUpperCase();
                         reset();
                     }
@@ -114,8 +170,8 @@
                 else if (guessesLeft == 0) {
                     //Then will lose and we'll update the HTML to display the losses.//
                     losses++;
-                    document.getElementById("losses").innerHTML = "Losses:" + losses;
-                    alert("You are not psychic.");
+                    document.getElementById("losses").innerHTML = "Losses: " + losses;
+                    alert("You are not psychic. Don't quit your day job.");
                     reset();   //Then we'll call the reset.//
                 }
     
@@ -132,16 +188,16 @@
                 if (guessesLeft > 0) {
                     if (userGuess == lettersToGuess) {
                         wins++;
-                        document.getElementById("wins").innerHTML = "Wins:" + wins;
+                        document.getElementById("wins").innerHTML = "Wins: " + wins;
                         userGuess = userGuess.toUpperCase();
-                        alert("You gusses correct!");
+                        alert("Correct! You really are psychic. I knew it!");
                         reset();
                     }
                 }
                 else if (guessesLeft == 0) {
                     //Then will lose and we'll update the HTML to display the losses.//
                     losses++;
-                    document.getElementById("losses").innerHTML = "Losses:" + losses;
+                    document.getElementById("losses").innerHTML = "Losses: " + losses;
                     alert("You are not psychic.");
                     reset();   //Then we'll call the reset.//
                 }

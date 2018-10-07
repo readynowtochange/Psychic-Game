@@ -1,0 +1,40 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%; 
+    margin: 0;
+    padding: 0;
+    background-color:rgb(40, 12, 94);
+    background-image: linear-gradient(black, rgb(40, 12, 94));
+}
+.jumbotron {
+    margin-top: 20px;
+    background-image: url(https://data.whicdn.com/images/306641389/large.jpg);
+    background-size: cover;
+    background-position: 100%;
+    background-position-x: 50%;
+    width: 75%;
+    margin-left: 150px;
+    padding-top: 125px;
+    padding-bottom: 125px;
+    padding-right: 50px;
+    padding-left: 50px;
+
+}
+h3, h1 {
+    color: rgb(255, 253, 253);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+h1 {
+    font-size: 50px;
+    text-decoration-line: underline;
+}
+h3 {
+    font-size: 35px;
+}
+p#wins, p#losses, p#guessesLeft, p#guessedLetters {
+    text-align: center;
+    font-size:25px;
+}
